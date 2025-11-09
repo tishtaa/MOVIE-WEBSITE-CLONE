@@ -1,7 +1,7 @@
-django
-django-allauth
-gunicorn
-whitenoise
-dj-database-url
-psycopg2-binary
-pillow
+Django==5.2.8
+django-allauth==65.13.0
+gunicorn==23.0.0
+whitenoise==6.7.0
+dj-database-url==2.2.0
+psycopg2-binary==2.9.9
+Pillow==11.3.0

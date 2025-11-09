@@ -1,7 +1,7 @@
 django
 django-allauth
-gunicorn 
-whitenoise 
-dj-database-url 
+gunicorn
+whitenoise
+dj-database-url
 psycopg2-binary
 pillow

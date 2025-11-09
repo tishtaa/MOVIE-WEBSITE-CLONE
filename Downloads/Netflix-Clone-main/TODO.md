@@ -1,16 +1,11 @@
-# TODO: Run Netflix Clone Project
+# Deployment Plan for Netflix Clone
 
-- [x] Create Python virtual environment
-- [x] Activate virtual environment
-- [x] Install dependencies from requirements.txt
-- [x] Run database migrations
-- [x] Start Django development server
-- [x] Fix code issues (models, CSS, settings, templates)
-- [x] Preserve and fix existing movies, videos, and profiles in database
-- [x] Update all movie flyers to use real image (movie.webp)
-- [x] Correct video file paths to include 'movies/' prefix
-- [x] Create superuser for admin access
-- [x] Verify functionality
-- [x] Confirm all features functional (authentication, profiles, movie browsing, video player)
-- [x] Add 2-3 more movies with different content
-- [x] Create unique colored flyer images for each movie with titles
+## Steps to Complete
+- [x] Update render.yaml with secure SECRET_KEY and ALLOWED_HOSTS
+- [x] Test locally with production settings (DEBUG=False, etc.)
+- [x] Verify static files collection and serving
+- [x] Test database connections and migrations
+- [x] Test user authentication and movie features
+- [x] Local testing completed: App runs with DEBUG=False, serves static files, basic pages load, authentication redirects work
+- [ ] Deploy to Render: Push code to GitHub, connect to Render, configure environment variables
+- [ ] Test deployed app: Verify live functionality, user registration, movie browsing, video playback
