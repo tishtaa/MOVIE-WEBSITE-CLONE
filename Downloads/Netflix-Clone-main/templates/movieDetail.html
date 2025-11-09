@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Detail Page
+{% endblock title %}
+
+{% block others %}
+
+<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+{% endblock others %}
+
+{% block content %}
+
+    {% include 'partials/navbar.html' %}
+    <main class='bg-primary_black min-h-screen w-full'>
+        <style>
+            .detail-hero {
+                background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), var(--bg-image);
+                background-size: cover;
+                background-position: center;
+            }
+        </style>
+        <section class="h-screen relative bg-no-repeat flex items-end pb-16 pl-6 md:pl-12 detail-hero" style="--bg-image: url('{{movie.flyer.url}}');">
+            <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));"></div>
+            <div class="relative z-10 w-full md:w-7/12 pr-4 md:pr-0">
+                <h2 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+                    {{movie.title}}
+                </h2>
+                <p class="text-gray-300 text-base md:text-lg mb-8 leading-relaxed">
+                    {{movie.description | slice:":150"}}...
+                </p>
+                <div class="flex gap-4 items-center flex-wrap">
+                    <a href="{% url 'core:play' movie_id=movie.uuid %}">
+                        <button class="flex items-center bg-red-600 text-white py-3 px-8 rounded-md hover:bg-red-700 font-semibold transition">
+                            <ion-icon name="play" class="text-2xl"></ion-icon>
+                            <span class="ml-3">Play</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </section> 
+        <section class='bg-primary_black  min-h-screen flex justify-center py-10'>
+            <div class="p-8 w-10/12 relative" >
+                {% if movie.type == 'seasonal' %}
+                <div style='margin-top:2rem;margin-bottom:2rem;'>
+                
+                    <h2 class="text-gray-200 text-3xl font-medium">
+                        Episode
+                    </h2>
+                    {% for episode in movie.videos.all %}
+                        <h3 class='text-lg'>
+                            <a href="{% url 'core:play' movie_id=movie.uuid %}?epi={{forloop.counter0}}">
+                            
+                            {{forloop.counter}} - {{episode.title}}
+                            </a>
+                        </h3>
+                    {% endfor %}
+                
+                </div>
+                {% endif %}
+
+                <h2 class="text-gray-200 text-3xl font-medium">
+                    Description
+                </h2>
+                <div class="flex justify-center  items-center min-w-full  movie_lis">
+                    <p class="text-gray-100 text-lg">
+                        
+                        {{movie.description}}    
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+{% endblock content %}
+

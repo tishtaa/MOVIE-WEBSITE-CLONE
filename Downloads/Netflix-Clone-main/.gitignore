@@ -1,0 +1,25 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Database
+db.sqlite3
+
+# macOS
+.DS_Store
+
+# Media files (user uploaded profiles)
+media/profiles/
+
+# Static root (collected static files)
+static_root/
+
+# IDE
+.vscode/
+
+# Logs
+*.log
